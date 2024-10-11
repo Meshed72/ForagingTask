@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'foraging_task/css/task.css' %}">
+
+<html>
+<head>
+  <title>Foraging Task</title>
+</head>
+<body onload="initTask()">
+  <!-- NEW -->
+  <div class="progress-bar">
+    <div class="progress-fill"></div>
+  </div>
+   
+  <div id="instructions-section">
+    <div id="instructions-text1" class="instructions-text">
+      <h2>Instructions</h2>
+      You want to pick as many good "berries" as you can, as fast as you can.<br />
+      Bright red squares are good berries; darker red squares are bad berries.
+      <br>
+      <br>    
+      <img id="instructions-image1" src="{% static 'foraging_task/images/instructions1.PNG' %}" alt="Instructions Image1">    
+    </div>
+
+    <div id="instructions-text2" class="instructions-text">
+      <h2>Instructions</h2>
+      After each picking of a berry, you'll hear a good/bad feedback sound, so make sure your audio is on.<br />
+      You have 15 minutes for the task. When you want to move to the next patch, click on the "next patch" button in the lower part of the screen.<br />
+      The transition from one patch to another takes 15 seconds, during which you will not be able to collect berries.
+      <br>
+      <br>    
+      <img id="instructions-image2" src="{% static 'foraging_task/images/instructions2.PNG' %}" alt="Instructions Image2">    
+    </div>
+
+    <div id="instructions-text3" class="instructions-text">
+      <h2>Instructions</h2>
+      The yellow bar at the top of the screen marks the time that has elapsed out of the 15 minutes that you have to complete the task.
+      <br>
+      <br>    
+      <img id="instructions-image3" src="{% static 'foraging_task/images/instructions3.PNG' %}" alt="Instructions Image3">    
+    </div>
+
+    <div id="instructions-text4" class="instructions-text">
+      <h2>Instructions</h2>
+      Remember, your task is to pick as many good "berries" as possible!<br />
+      In addition to the reward you will receive for completing the experiment, after all other participants are done, 15% of those who collect the most good berries and the fewest bad berries will receive an additional reward. So try your best!<br />
+      Now let’s start with a three-step practice phase before going on to the task.
+      <br>
+      <br>    
+      <img id="instructions-image1" src="{% static 'foraging_task/images/instructions1.PNG' %}" alt="Instructions Image1">    
+    </div>
+
+    <div id="instructions-text5" class="instructions-text">
+      <h2>Practice – step 1</h2>
+      This step is just a test.<br /> Please use the dropdown lists below each colored square to sort the squares from darkest to brightest.<br />
+      1 is the brightest square and 10 is the darkest.<br />
+      You have to rank 2 to 9.<br />
+      Click on Submit when you'r done sorting.         
+    </div>
+
+    <div id="instructions-text6" class="instructions-text">
+      <h2>Practice – step 2</h2>
+      This step is also a test. Please click on five different squares located in the same row, consecutively.
+    </div>
+
+    <div id="instructions-text7" class="instructions-text">
+      <h2>Practice – step 3</h2>
+      Now let’s practice the task itself. Try to pick only good "berries" - bright red squares.<br /> 
+      When you have managed to pick 10 good berries in succession, you will move on to the actual task.<br /> 
+      Note: there is a range of brighter and darker squares, so it’s easy to make a mistake. Continue until you manage to pick 10 good berries in succession.
+    </div>
+
+    <div id="instructions-text8" class="instructions-text">
+      <h2>The task</h2>
+      Now you are all set to begin the task.<br />
+      Remember: your goal is to pick as many good “berries” as you can within 15 minutes.<br />
+      When you want to move to next patch, click “next patch.”<br />
+      The transition to the next patch will take 15 seconds, during which you will not be able to collect berries. 
+      <br>
+      <br>    
+      <img id="instructions-image2" src="{% static 'foraging_task/images/instructions2.PNG' %}" alt="Instructions Image2"> 
+    </div>
+
+    <div id="instructions-text9" class="instructions-text">
+      <h2>The Task</h2>
+      We remind you again that in addition to the reward you will receive for completing the experiment, after all other participants are done, 15% of those who collect the most good berries and the fewest bad berries will receive an additional reward.<br />
+      So try your best!<br />
+      Good luck!
+    </div>
+    <br>
+    <br>
+    <button class="blue-button" id="start-task-button" onclick="taskManager.startTask()">Start Task</button>
+  </div>
+
+  <div class="end-text">
+    <br>
+    <br>
+    <br>
+    Task finished - thank you
+  </div>
+
+  <div id="color-test" class="task-frame">
+    <table>
+      <tr id="row1"></tr>
+      <tr id="row2"></tr>
+    </table>
+  </div>
+
+  <canvas id="matrixCanvas" width="500" height="500"></canvas>
+
+  <div class="circle">
+    <div class="fill"></div>
+  </div>
+    
+  <div class="buttons-container">   
+    <button class="green-button" id="next-patch-button" onclick="taskManager.clickNextPatch()">Next Patch</button>
+    <button class="blue-button" id="next-phase-button" onclick="taskManager.clickNextPhase()">Next</button>
+    <button class="blue-button" id="color-test-submit" onclick="submitValues(taskManager)">Submit</button>
+  </div>
+</body>
+</html>
+
+<audio id="errorSound" src="{% static 'foraging_task/sounds/error.mp3' %}"></audio>
+<audio id="correctSound" src="{% static 'foraging_task/sounds/correct.wav' %}"></audio>
+<audio id="neutralSound" src="{% static 'foraging_task/sounds/neutral.wav' %}"></audio>
+
+<script src="{% static 'foraging_task/js/config.js' %}"></script>
+<script src="{% static 'foraging_task/js/TaskManager.js' %}"></script>
+<script src="{% static 'foraging_task/js/MatrixBuilder.js' %}"></script>
+<script src="{% static 'foraging_task/js/ExperimentManager.js' %}"></script>
+<script src="{% static 'foraging_task/js/ColorTest.js' %}"></script>

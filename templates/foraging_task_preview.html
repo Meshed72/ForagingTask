@@ -1,0 +1,36 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'foraging_task/css/welcome.css' %}">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Experiment</title>
+</head>
+<body class="preview-page-body">
+    <div class="instructions">
+        <p>            
+            <h1>Visual Task</h1>
+            You want to pick as many ripe "berries" as you can, as fast as you can.<br />
+            Bright red squares are ripe berries; darker red squares are unripe and not good.<br />
+            <br />
+            <br />
+            <img src="{% static 'foraging_task/images/instructions.png' %}" alt="Instructions Image"> 
+            <br />
+            After each picking of a berry, you'll hear a good/bad feedback sound, so make sure your audio is on.<br />
+            You have 15 minutes for the task. When you want to move to the next patch, click on the "next patch" button in the lower part of the screen. The transition from one patch to another takes 15 seconds, during which you will not be able to collect berries.<br />
+            The yellow bar at the top of the screen marks the time that has elapsed out of the 15 minutes that you have to complete the task.<br />
+            Remember, your task is to pick as many ripe "berries" as possible!<br />
+            In addition to the reward you will receive for completing the experiment, after all other participants are done, 15% of those who collect the most ripe berries and the fewest unripe berries will receive an additional reward. So try your best!
+            <br />
+            <br />
+            Now let’s start with a two-step practice phase before going on to the task.
+        </p>
+    </div>
+    <br />    
+    <div>
+        <button class="next-button" onclick="navigateTo('foraging_task/foraging_task')">Start</button>
+    </div>
+</body>
+</html>
+
+<script src="{% static 'foraging_task/js/ExperimentManager.js' %}"></script>

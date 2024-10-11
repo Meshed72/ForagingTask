@@ -1,0 +1,76 @@
+<!-- questionnaire_form.html -->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'foraging_task/css/questionnaire.css' %}">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Questionnaire</title>
+</head>
+<body onload="initQuiestionnaire('{{ form_name }}')">
+    <h1>Questionnaire</h1>
+    <div class="instructions">
+        <p id="oci_instructions">    
+            The following statements refer to experiences that many people have in their everyday lives. Select
+            the number that best describes HOW MUCH that experience has DISTRESSED or BOTHERED you
+            during the PAST MONTH. The numbers refer to the following verbal labels:
+            <br />
+            <br />
+            0 = Not at all<br />
+            1 = A little<br />
+            2 = Moderately<br />
+            3 = A lot<br />
+            4 = Extremely<br />
+        </p>
+
+        <p id="dass_instructions">    
+            Please read each statement and select a number 0, 1, 2 or 3 which indicates how much the statement 
+            applied to you over the past week. There are no right or wrong answers. Do not spend too much 
+            time on any statement.
+            <br />
+            <br />
+            0 = Did not apply to me at all<br />
+            1 = Applied to me to some degree, or some of the time<br />
+            2 = Applied to me to a considerable degree or a good part of time<br />
+            3 = Applied to me very much or most of the time<br />
+        </p>
+
+        <p id="aaq_instructions">    
+            Below you will find a list of statements. Please rate how true each statement is for you by selecting a number next to 
+            it. Use the scale below to make your choice.
+            <br />
+            <br />
+            1 = never true<br />
+            2 = very seldom true<br />
+            3 = seldom true<br />
+            4 = sometimes true<br />
+            5 = frequently true<br />
+            6 = almost always true<br />
+            7 = always true<br />
+        </p>    
+    </div>    
+    <form method="post">
+        {% csrf_token %}
+        <table>            
+            {% for field in form %}
+            <tr class="form-group">
+                <td>
+                    <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label><br>
+                </td>
+                <td>    
+                    {% for radio in field %}
+                        {{ radio }}
+                        <label for="{{ radio.id_for_label }}">{{ radio.choice.data.value }}</label>
+                    {% endfor %}
+                </td>    
+            </tr>    
+            {% endfor %}        
+        </table>
+        </p>
+        <button id="submit-questionnaire" type="submit" class="submit-button">Next</button>
+    </form>
+</body>
+</html>
+
+<script src="{% static 'foraging_task/js/config.js' %}"></script>
+<script src="{% static 'foraging_task/js/ExperimentManager.js' %}"></script>

@@ -1,0 +1,45 @@
+table td{
+    width: 70%;
+}
+
+table tr:nth-child(-n + 2){
+    display: none;
+}
+
+.instructions{
+    font-size: x-large;
+}
+
+/* Add spacing between table rows */
+table {
+    border-collapse: collapse;
+}
+
+/* Add a lower border for each table row */
+tr {
+    border-bottom: 1px solid #d9d9d9;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(232, 232, 232);
+}
+
+/* Add padding to the cells for spacing */
+td {
+    padding: 20px 0;
+}
+
+.form-group{
+    font-size: x-large;
+}
+
+.submit-button {
+    background-color: green;
+    color: white;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+    font-size: larger;
+  }

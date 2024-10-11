@@ -1,0 +1,23 @@
+.instructions{
+    font-size: x-large;
+}
+
+.preview-page-body{
+  background-color: black;
+  color: white;
+}
+
+.next-button {
+  background-color: green;
+  color: white;
+  padding: 15px 50px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto;
+  font-size: larger;
+}
+
+.center{
+  text-align: center;
+}
