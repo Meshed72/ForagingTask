@@ -1,3 +1,5 @@
+///** Created by Matan Eshed 11/24 **/
+
 const TaskParams = {
 	MATRIX_SIZE: 20, // the task code assumes an even number
 	RED_COLORS:[
